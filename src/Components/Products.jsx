@@ -6,7 +6,12 @@ import useStyles from "./styles";
 
 const Products = ({ products }) => {
   const styles = useStyles();
-  const items = {};
+  const items = [];
+
+  const handlePurchase = () => {
+    const a = items.map((i) => i.id i.id);
+    console.log(a);
+  };
 
   return (
     <main>
@@ -21,7 +26,7 @@ const Products = ({ products }) => {
         className={styles.purchase}
         variant="contained"
         color="primary"
-        onClick={() => console.log(items)}
+        onClick={handlePurchase}
       >
         Purchase
       </Button>
