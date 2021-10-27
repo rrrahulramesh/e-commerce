@@ -1,25 +1,16 @@
 import { AppBar, Badge, IconButton, InputBase } from "@material-ui/core";
-import {
-  Filter,
-  Filter2,
-  FilterList,
-  Search,
-  ShoppingCart,
-} from "@material-ui/icons";
+import { Search } from "@material-ui/icons";
 import React from "react";
 import Product from "./Product";
 import useStyles from "./styles";
 
-const NavBar = ({ cartCount, onFilter }) => {
+const NavBar = ({ OnSearch }) => {
   const navStyles = useStyles();
   return (
-    <AppBar position="fixed" color="inherit">
+    <AppBar position="fixed" color="inherit" className={navStyles.appBar}>
       <IconButton>
         <Search />
-        <InputBase placeholder="Search By Category" value={onFilter} />
-        <Badge badgeContent={cartCount} color="primary">
-          <ShoppingCart />
-        </Badge>
+        <InputBase placeholder="Search By Category" onChange={OnSearch} />
       </IconButton>
     </AppBar>
   );
