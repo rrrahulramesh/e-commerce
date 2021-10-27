@@ -1,4 +1,5 @@
 import {
+  Badge,
   Card,
   CardActions,
   CardContent,
@@ -7,37 +8,47 @@ import {
   Typography,
 } from "@material-ui/core";
 import { AddShoppingCart } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 
 import useStyles from "./styles";
 
-const Product = ({ product }) => {
+const Product = ({ products, onAddCart }) => {
   const productStyles = useStyles();
 
+  const [count, setCount] = useState(0);
+
+  const handleChange = () => {
+    setCount(count + 1);
+    console.log(JSON.stringify({ id: products.id, quantity: count }));
+    this.props.onAddCart = JSON.stringify({ id: products.id, quantity: count });
+  };
+
   return (
-    <Card className={product.root}>
+    <Card className={productStyles.root}>
       <CardMedia
         className={productStyles.media}
-        image={product.image}
-        title={product.name}
+        image={products.image}
+        title={products.name}
       />
       <CardContent>
         <div className={productStyles.CardContent}>
           <Typography variant="h5" gutterBottom>
-            {product.name}
+            {products.name}
           </Typography>
 
           <Typography variant="h5" gutterBottom>
-            {product.price}
+            &#8377; {products.price}
           </Typography>
         </div>
         <Typography variant="h6" color="textSecondary">
-          Vendor: {product.vendor}
+          {products.available ? "In Stock" : "Out of Stock"}
         </Typography>
       </CardContent>
       <CardActions disableSpacing className={productStyles.cardActions}>
-        <IconButton aria-label="Add to Cart">
-          <AddShoppingCart />
+        <IconButton aria-label="Add to Cart" onClick={handleChange}>
+          <Badge badgeContent={count} color="secondary">
+            <AddShoppingCart />
+          </Badge>
         </IconButton>
       </CardActions>
     </Card>

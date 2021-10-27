@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { findByLabelText } from "@testing-library/dom";
 
 export default makeStyles(() => ({
   root: {
@@ -16,5 +15,19 @@ export default makeStyles(() => ({
   cardContent: {
     display: "flex",
     justifyContent: "space-between",
+  },
+  appBar: {
+    boxShadow: "none",
+    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+  },
+  title: {
+    flexGrow: 1,
+    alignItems: "center",
+    display: "flex",
+    textDecoration: "none",
+  },
+  purchase: {
+    marginTop: "20px",
+    marginLeft: "50%",
   },
 }));

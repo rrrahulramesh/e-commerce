@@ -68,21 +68,30 @@ const products = [
 
 const App = () => {
   const [cart, setCart] = useState(0);
+  const purchasedItems = [];
 
-  const handleAddCart = (productId, quantity) => {
+  const [product, setFilteredProducts] = useState(products);
+
+  const handleAddCart = (e) => {
     setCart(cart + 1);
-    console.log(cart);
+    console.log(products.id);
   };
 
-  const handleFilter = () => {
-    console.log(handleFilter);
-    // const [products, setFilteredProducts] = useState(products);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+
+    const filtered = [...products].filter(
+      (product) => product.category.toLowerCase().indexOf(e.target.value) > -1
+    );
+
+    setFilteredProducts(filtered);
   };
 
   return (
     <div>
-      <NavBar cartCount={cart} onFilter={handleFilter} />
-      <Products products={products} onAddCart={handleAddCart} />
+      <NavBar cartCount={cart} OnSearch={handleSearch} />
+      <Products products={product} />
     </div>
   );
 };
