@@ -19,8 +19,8 @@ const Product = ({ products, onAddCart }) => {
 
   const handleChange = () => {
     setCount(count + 1);
-    console.log(JSON.stringify({ id: products.id, quantity: count }));
-    this.props.onAddCart = JSON.stringify({ id: products.id, quantity: count });
+    onAddCart.push(JSON.stringify({ id: products.id, quantity: count }));
+    console.log(onAddCart);
   };
 
   return (

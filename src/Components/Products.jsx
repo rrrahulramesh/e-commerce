@@ -9,7 +9,7 @@ const Products = ({ products }) => {
   const items = [];
 
   const handlePurchase = () => {
-    const a = items.map((i) => i.id i.id);
+    const a = items.map((i) => i == i.id);
     console.log(a);
   };
 
