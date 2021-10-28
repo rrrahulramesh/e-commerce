@@ -68,7 +68,6 @@ const products = [
 
 const App = () => {
   const [cart, setCart] = useState(0);
-  const purchasedItems = [];
 
   const [product, setFilteredProducts] = useState(products);
 

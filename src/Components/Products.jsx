@@ -6,11 +6,19 @@ import useStyles from "./styles";
 
 const Products = ({ products }) => {
   const styles = useStyles();
-  const items = [];
+  const items = [
+    { id: 1, quantity: 0 },
+    { id: 2, quantity: 0 },
+    { id: 3, quantity: 0 },
+    { id: 4, quantity: 0 },
+  ];
 
   const handlePurchase = () => {
-    const a = items.map((i) => i == i.id);
-    console.log(a);
+    items.forEach((i) => {
+      if (i.quantity > 0) {
+        alert(`${products[i.id - 1].name} : ${i.quantity}`);
+      }
+    });
   };
 
   return (

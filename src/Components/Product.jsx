@@ -19,8 +19,11 @@ const Product = ({ products, onAddCart }) => {
 
   const handleChange = () => {
     setCount(count + 1);
-    onAddCart.push(JSON.stringify({ id: products.id, quantity: count }));
-    console.log(onAddCart);
+
+    onAddCart[products.id - 1].quantity += 1;
+
+    // onAddCart.push({ id: products.id, quantity: count });
+    //onAddCart.push(JSON.stringify({ id: products.id, quantity: count }));
   };
 
   return (
